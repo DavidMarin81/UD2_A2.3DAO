@@ -16,8 +16,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        mostrarDepartamentos();
-        verDetalleDepartamento(666);
+//        mostrarDepartamentos();
+//        verDetalleDepartamento(666);
+        getDepartmentNamesByLoc("DALLAS");
 
     }
 
@@ -38,6 +39,18 @@ public class Main {
 
         String mensaje = controlador.verDetalles(id);
         System.out.println(mensaje);
+
+    }
+
+    
+    private static void getDepartmentNamesByLoc(String ubicacion) {
+
+        DepartamentoController controlador = new DepartamentoController();
+
+        ArrayList<String> nombres = controlador.getDepartamentNamesByLoc(ubicacion);
+        for (String nombre : nombres) {
+            System.out.println("Nombre dept: " + nombre);
+        }
 
     }
 

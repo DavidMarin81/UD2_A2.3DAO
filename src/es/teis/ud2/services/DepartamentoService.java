@@ -31,5 +31,10 @@ public class DepartamentoService implements IDepartamentoService{
      public Departamento findById(int id) throws InstanceNotFoundException{
          return this.departamentoDao.read(id);
      }
+
+    @Override
+    public ArrayList<String> getDepartamentNamesByLoc(String ubicacion) {
+     return this.departamentoDao.getDepartamentNamesByLoc(ubicacion);
+    }
     
 }

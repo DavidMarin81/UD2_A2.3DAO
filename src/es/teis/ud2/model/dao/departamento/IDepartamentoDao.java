@@ -29,4 +29,6 @@ public interface IDepartamentoDao extends IGenericDao<Departamento> {
     
     public ArrayList<Departamento> findAll();
     
+    public ArrayList<String> getDepartamentNamesByLoc(String ubicacion);
+    
 }

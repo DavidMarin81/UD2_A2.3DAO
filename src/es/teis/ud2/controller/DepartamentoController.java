@@ -48,4 +48,8 @@ public class DepartamentoController {
         return resultado;
     }
 
+    public ArrayList<String> getDepartamentNamesByLoc(String ubicacion) {
+        return this.departamentoService.getDepartamentNamesByLoc(ubicacion);
+    }
+
 }

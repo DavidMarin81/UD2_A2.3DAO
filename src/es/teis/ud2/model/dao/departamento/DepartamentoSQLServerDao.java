@@ -23,13 +23,10 @@ import javax.sql.DataSource;
 public class DepartamentoSQLServerDao extends AbstractGenericDao<Departamento> implements IDepartamentoDao {
 
     private DataSource dataSource;
-   
 
     public DepartamentoSQLServerDao() {
         this.dataSource = DBCPDataSourceFactory.getDataSource();
     }
-   
-      
 
     @Override
     public Departamento create(Departamento departamento) {
@@ -145,7 +142,6 @@ public class DepartamentoSQLServerDao extends AbstractGenericDao<Departamento> i
         return (result == 1);
     }
 
-    
     @Override
     public ArrayList<Departamento> findAll() {
         String nombreDept;
@@ -154,10 +150,10 @@ public class DepartamentoSQLServerDao extends AbstractGenericDao<Departamento> i
         int contador;
         Departamento departamento = null;
         ArrayList<Departamento> departamentos = new ArrayList<>();
-        
-        
+
         try (
-                 Connection conexion = this.dataSource.getConnection();  PreparedStatement pstmt = conexion.prepareStatement("SELECT DEPTNO, DNAME, LOC FROM DEPT ORDER BY DNAME");  ResultSet result = pstmt.executeQuery();) {
+                 Connection conexion = this.dataSource.getConnection();  PreparedStatement pstmt = conexion.prepareStatement("SELECT DEPTNO, DNAME, LOC "
+                + "FROM DEPT ORDER BY DNAME");  ResultSet result = pstmt.executeQuery();) {
 
             while (result.next()) {
                 contador = 0;
@@ -176,8 +172,35 @@ public class DepartamentoSQLServerDao extends AbstractGenericDao<Departamento> i
             System.err.println("Ha ocurrido una excepción: " + ex.getMessage());
 
         }
-        
+
         return departamentos;
+    }
+
+    @Override
+    public ArrayList<String> getDepartamentNamesByLoc(String ubicacion) {
+        String nombreDept;
+        ArrayList<String> nombres = new ArrayList<>();
+
+        try (
+                 Connection conexion = this.dataSource.getConnection();  PreparedStatement pstmt = conexion.prepareStatement("SELECT DNAME "
+                + "FROM DEPT WHERE LOC LIKE ? ORDER BY DNAME");) {
+
+            pstmt.setString(1, ubicacion);
+            ResultSet result = pstmt.executeQuery();
+
+            while (result.next()) {
+
+                nombreDept = result.getString(1);
+                nombres.add(nombreDept);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.err.println("Ha ocurrido una excepción: " + ex.getMessage());
+
+        }
+
+        return nombres;
     }
 
 }

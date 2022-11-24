@@ -17,4 +17,5 @@ public interface IDepartamentoService {
     public ArrayList<Departamento> findAll();
     public Departamento findById(int id) throws InstanceNotFoundException;
     
+    public ArrayList<String> getDepartamentNamesByLoc(String ubicacion);
 }
