@@ -4,7 +4,7 @@
  */
 package es.teis.ud2.model.dao.departamento;
 
-import es.teis.ud2.DBCPDataSourceFactory;
+import es.teis.ud2.data.DBCPDataSourceFactory;
 import es.teis.ud2.exceptions.InstanceNotFoundException;
 import es.teis.ud2.model.Departamento;
 import es.teis.ud2.model.dao.AbstractGenericDao;
