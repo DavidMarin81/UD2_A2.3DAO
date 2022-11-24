@@ -48,4 +48,11 @@ public class Departamento {
         this.loc = loc;
     }
 
+    @Override
+    public String toString() {
+        return "Departamento{" + "deptno=" + deptno + ", deptName=" + deptName + ", loc=" + loc + '}';
+    }
+
+    
+    
 }
