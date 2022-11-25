@@ -16,8 +16,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        mostrarDepartamentos();
-//        verDetalleDepartamento(666);
+        mostrarDepartamentos();
+        //probar a encontrar un departamento que no existe
+        //     verDetalleDepartamento(666);
         getDepartmentNamesByLoc("DALLAS");
 
     }
@@ -42,7 +43,6 @@ public class Main {
 
     }
 
-    
     private static void getDepartmentNamesByLoc(String ubicacion) {
 
         DepartamentoController controlador = new DepartamentoController();

@@ -88,7 +88,7 @@ public class DepartamentoSQLServerDao extends AbstractGenericDao<Departamento> i
                         nombreDept, ubicacion);
 
             } else {
-                throw new InstanceNotFoundException(id, this.getClass().getName());
+                throw new InstanceNotFoundException(id, getEntityClass());
             }
 
         } catch (SQLException ex) {
