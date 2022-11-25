@@ -7,7 +7,6 @@ package es.teis.ud2.model.dao.empleado;
 import es.teis.ud2.exceptions.InstanceNotFoundException;
 import es.teis.ud2.model.Empleado;
 import es.teis.ud2.model.dao.AbstractGenericDao;
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;

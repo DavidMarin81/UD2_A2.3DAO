@@ -8,8 +8,8 @@ import es.teis.ud2.exceptions.InstanceNotFoundException;
 import es.teis.ud2.model.Departamento;
 import es.teis.ud2.model.dao.departamento.DepartamentoSQLServerDao;
 import es.teis.ud2.model.dao.departamento.IDepartamentoDao;
-import es.teis.ud2.services.DepartamentoService;
-import es.teis.ud2.services.IDepartamentoService;
+import es.teis.ud2.services.departamento.DepartamentoService;
+import es.teis.ud2.services.departamento.IDepartamentoService;
 import java.util.ArrayList;
 
 /**
