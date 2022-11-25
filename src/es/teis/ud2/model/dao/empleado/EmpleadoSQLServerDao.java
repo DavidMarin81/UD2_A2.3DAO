@@ -4,6 +4,7 @@
  */
 package es.teis.ud2.model.dao.empleado;
 
+import es.teis.ud2.data.DBCPDataSourceFactory;
 import es.teis.ud2.exceptions.InstanceNotFoundException;
 import es.teis.ud2.model.Empleado;
 import es.teis.ud2.model.dao.AbstractGenericDao;
@@ -24,8 +25,8 @@ public class EmpleadoSQLServerDao extends AbstractGenericDao<Empleado>
 
     private DataSource dataSource;
 
-    public EmpleadoSQLServerDao(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public EmpleadoSQLServerDao() {
+        this.dataSource = DBCPDataSourceFactory.getDataSource();
     }
 
     @Override
