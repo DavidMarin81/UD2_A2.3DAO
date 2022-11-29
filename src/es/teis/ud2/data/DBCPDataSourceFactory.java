@@ -10,9 +10,9 @@ import java.nio.file.Paths;
 import java.util.Properties;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
-
+//Clase que se usa para conectarse con la BBDD
 public class DBCPDataSourceFactory {
-
+    //Fichero donde esta el archivo properties de la BBDD
     private static final String DB_CONFIG_FILE
             = Paths.get("config", "db.properties").toString();
     //Las claves del fichero Properties:
@@ -41,7 +41,7 @@ public class DBCPDataSourceFactory {
             try (
                      FileInputStream fis = new FileInputStream(DB_CONFIG_FILE);) {
                 props.load(fis);
-
+                //Para especificar que la BBDD es SQLServer
                 String dbType = props.getProperty(SELECTED_SGBD);
 
                 driverClassName = props.getProperty(concatString(dbType, DB_DRIVER_CLASS));

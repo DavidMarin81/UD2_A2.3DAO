@@ -5,7 +5,9 @@
 package es.teis.ud2;
 
 import es.teis.ud2.controller.DepartamentoController;
+import es.teis.ud2.controller.EmpleadoController;
 import es.teis.ud2.model.Departamento;
+import es.teis.ud2.model.Empleado;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +22,21 @@ public class Main {
         //probar a encontrar un departamento que no existe
         //     verDetalleDepartamento(666);
         getDepartmentNamesByLoc("DALLAS");
+        
+        //Mostrar los empleados
+        System.out.println("\n=============================");
+        mostrarEmpleados();
+        //getEmpleadoByEmpno(7902);
 
+    }
+    
+    private static void mostrarEmpleados() {
+        EmpleadoController controlador = new EmpleadoController();
+        ArrayList<Empleado> empleados = controlador.findAll();
+        
+        for (Empleado empleado : empleados) {
+            System.out.println("Empleado: " + empleado);
+        }
     }
 
     private static void mostrarDepartamentos() {
@@ -41,6 +57,15 @@ public class Main {
         String mensaje = controlador.verDetalles(id);
         System.out.println(mensaje);
 
+    }
+    
+    private static void getEmpleadoByEmpno(int id) {
+        EmpleadoController controlador = new EmpleadoController();
+        
+        ArrayList<Integer> empleados = controlador.getEmpleadoByEmpno(id);
+        for(int numero : empleados){
+            System.out.println(numero);
+        }
     }
 
     private static void getDepartmentNamesByLoc(String ubicacion) {
